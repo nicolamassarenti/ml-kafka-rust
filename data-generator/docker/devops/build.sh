@@ -9,6 +9,8 @@ set -o errexit
 set -o nounset
 # don't hide errors within pipes
 set -o pipefail
+# enable expansion of variables
+# set -o xtrace # Uncomment this line for debugging purposes
 
 ########################################################################################################################
 # Locations ############################################################################################################
