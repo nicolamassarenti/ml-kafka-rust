@@ -1,0 +1,46 @@
+version: "2"
+
+services:
+  zookeeper:
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    image: docker.io/bitnami/zookeeper:3.8
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+
+  kafka:
+    depends_on:
+      - zookeeper
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+    image: docker.io/bitnami/kafka:3.3
+    ports:
+      - "9092:9092"
+    volumes:
+      - "kafka_data:/bitnami"
+
+  data-generator:
+    build:
+      context: ./data-generator
+      dockerfile: ./docker/containers/Dockerfile
+    command: >
+      from-url
+        --url https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/vehicle-types-1548954237.jpg
+        --sleep 20
+    container_name: data-generator
+    depends_on:
+      - kafka
+    environment:
+      - TOPIC=inbound-data
+      - ENDPOINT=kafka:9092
+    restart: always
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
