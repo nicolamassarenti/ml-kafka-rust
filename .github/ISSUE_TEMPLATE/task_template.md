@@ -2,7 +2,7 @@
 name: Task
 about: Create a task for a feature
 title: '[task] - '
-labels: task
+labels: [task, triage]
 assignees: 'nicolamassarenti'
 ---
 # Description of the task

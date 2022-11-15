@@ -2,7 +2,7 @@
 name: Epic
 about: Create an epic that describes a large set of features
 title: '[epic] - '
-labels: epic
+labels: [epic, triage]
 assignees: 'nicolamassarenti'
 ---
 # Description of the epic

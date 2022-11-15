@@ -2,7 +2,7 @@
 name: Feature
 about: Create a feature request
 title: '[feature] - '
-labels: feature
+labels: [feature, triage]
 assignees: 'nicolamassarenti'
 ---
 # Description of the feature
