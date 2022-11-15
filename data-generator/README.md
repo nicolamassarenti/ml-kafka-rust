@@ -30,13 +30,48 @@ where:
 - `TOPIC` is the topic to publish to
 
 ### Python
-To run the data generator with Python, you need to have Python >= 3.7 installed on your machine. Then, you can run the following command:
+This package supports Python 3.7+. To run the data generator with Python, you need to have Python 3.7+ installed on your machine. Then, you can run the following command:
+
+#### Environment setup
+To set up the environment, you need to have [poetry](https://python-poetry.org/) installed on your machine. Then, you can run the following command:
 
 ```bash
 poetry config virtualenvs.in-project true && \
-poetry install  --no-dev  && \
+poetry install
+```
+
+#### Run the data generator
+To run the data generator, you can run the following command:
+```bash
+URL="www.your-target-url.com/something" # The URL to retrieve data from
+SLEEP=10 # in milliseconds
+ENDPOINT="127.something.x.y:1234" # the endpoint to publish to
+TOPIC="some-topic" # the topic to publish to
 poetry run -m data_generator from-url --url "${URL}" \
                                       --sleep "${SLEEP}" \
-                                      --endpoint "${ENDPOINT}" && \
-rm -r --force .venv   # Clean up
+                                      --endpoint "${ENDPOINT}" \
+                                      --topic "${TOPIC}"
+```
+#### Clean up
+To clean up the environment, you can run the following command:
+
+```bash
+rm -r --force .venv
+```
+
+## Tests
+
+
+### Unit tests
+To run the unit tests, you must can run the following command:
+
+```bash
+poetry run coverage run -m --source data_generator unittest discover -v
+```
+
+### Coverage
+To scan the code for coverage, you can run the following command:
+
+```bash
+poetry run coverage report -m
 ```

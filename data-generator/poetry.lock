@@ -94,6 +94,17 @@ python-versions = "*"
 test = ["hypothesis (==3.55.3)", "flake8 (==3.7.8)"]
 
 [[package]]
+name = "coverage"
+version = "6.5.0"
+description = "Code coverage measurement for Python"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+toml = ["tomli"]
+
+[[package]]
 name = "idna"
 version = "3.4"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -345,6 +356,14 @@ optional = false
 python-versions = ">=3.7"
 
 [[package]]
+name = "unittest"
+version = "0.0"
+description = ""
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "urllib3"
 version = "1.26.12"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -391,7 +410,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "8bf556717d752dc74c9ece9afb7f0e201a6e9c011fa86b9031f032f24f3fec44"
+content-hash = "e0f6cf161da0bcc4ba2eda88656a6d633386e7f661dead93417b440ff960056e"
 
 [metadata.files]
 atomicwrites = []
@@ -405,6 +424,7 @@ click = [
 ]
 colorama = []
 commonmark = []
+coverage = []
 idna = []
 importlib-metadata = []
 kafka-python = []
@@ -450,6 +470,9 @@ tomli = [
 typed-ast = []
 typer = []
 typing-extensions = []
+unittest = [
+    {file = "unittest2-0.0.0.tar.gz", hash = "sha256:1b492484bea7f68abda5fcc61412e77b6a105e5842355d630f8b75f01add3555"},
+]
 urllib3 = []
 wcwidth = [
     {file = "wcwidth-0.2.5-py2.py3-none-any.whl", hash = "sha256:beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"},
