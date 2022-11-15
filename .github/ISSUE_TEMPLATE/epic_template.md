@@ -1,9 +1,9 @@
 ---
 name: Epic
-about: Create an epic to help us improve
+about: Create an epic that describes a large set of features
 title: '[epic] - '
 labels: epic
-assignees: ''
+assignees: 'nicolamassarenti'
 ---
 # Description of the epic
 A clear and concise description of what the epic is.

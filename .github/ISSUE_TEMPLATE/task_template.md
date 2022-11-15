@@ -1,9 +1,9 @@
 ---
 name: Task
-about: A task that is part of a feature
+about: Create a task for a feature
 title: '[task] - '
 labels: task
-assignees: ''
+assignees: 'nicolamassarenti'
 ---
 # Description of the task
 A clear and concise description of what the task is.
