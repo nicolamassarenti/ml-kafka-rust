@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "etl"
+version = "0.1.0"
+description = "Processing of streaming data"
+authors = ["Nicola Massarenti <nicola.massarenti@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^1.10.2"
+loguru = "^0.6.0"
+confluent-kafka = "^1.9.2"
+typer = {extras = ["all"], version = "^0.7.0"}
+numpy = "^1.23.5"
+pillow = "^9.3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
