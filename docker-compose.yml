@@ -41,8 +41,8 @@ services:
         --sleep 20
     container_name: data-generator
     depends_on:
-      - kafka
+      - broker
     environment:
       - TOPIC=inbound-data
-      - ENDPOINT=kafka:9092
+      - ENDPOINT=broker:9092
     restart: always
