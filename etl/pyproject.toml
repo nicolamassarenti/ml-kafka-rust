@@ -3,7 +3,6 @@ name = "etl"
 version = "0.1.0"
 description = "Processing of streaming data"
 authors = ["Nicola Massarenti <nicola.massarenti@gmail.com>"]
-readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"

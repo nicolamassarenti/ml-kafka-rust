@@ -38,7 +38,7 @@ services:
     command: >
       from-url
         --url https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/vehicle-types-1548954237.jpg
-        --sleep 20
+        --sleep 5
     container_name: data-generator
     depends_on:
       - broker
@@ -46,3 +46,19 @@ services:
       - TOPIC=inbound-data
       - ENDPOINT=broker:9092
     restart: always
+
+#  etl:
+#    build:
+#      context: ./etl
+#      dockerfile: ./docker/containers/Dockerfile
+#    container_name: etl
+#    depends_on:
+#      - broker
+#    environment:
+#        - KAFKA_SERVER=http://broker
+#        - KAFKA_PORT=9092
+#        - KAFKA_TOPIC=inbound-data
+#        - KAFKA_GROUP_ID=1
+#        - IMAGE_HEIGHT=512
+#        - IMAGE_WIDTH=512
+#    restart: always

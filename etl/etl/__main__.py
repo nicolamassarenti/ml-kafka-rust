@@ -21,6 +21,12 @@ def consume(
     IMAGE_SIZE = (IMAGE_HEIGHT, IMAGE_WIDTH)
     logger.info(f"IMAGE_SIZE: {IMAGE_SIZE}")
 
+    # Sleep 10 seconds to wait for the Kafka server to be ready
+    import time
+    logger.info("Sleeping 10 seconds to wait for the Kafka server to be ready")
+    time.sleep(10)
+
+
     consumer = Consumer(
         server=server,
         port=port,

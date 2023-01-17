@@ -4,7 +4,7 @@ import base64
 import requests
 import os
 
-from data_generator import logger, Sender
+from data_generator import logger, Producer
 
 
 app = typer.Typer(name="data-generator")
@@ -44,13 +44,17 @@ def from_url(
         )
     )
 
+    # Sleep 10 seconds to wait for the Kafka server to be ready
+    logger.info("Sleeping 10 seconds to wait for the Kafka server to be ready")
+    time.sleep(sleep)
+
     while True:
         # Downloading image from url and converting it to base64
         image = base64.b64encode(requests.get(url).content)
 
         logger.info("Sending image to url '{endpoint}'".format(endpoint=endpoint))
         # Sending image to endpoint
-        Sender.send(image=image, endpoint=endpoint, topic=os.getenv("TOPIC"))
+        Producer.produce(image=image, endpoint=endpoint, topic=os.getenv("TOPIC"))
 
         logger.info("Sleeping {x}ms".format(x=sleep))
         # Sleeping `sleep` milliseconds
